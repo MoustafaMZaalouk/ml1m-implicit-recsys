@@ -1,0 +1,22 @@
+name: ci
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - name: Install pinned dependencies (CPU torch)
+        run: |
+          python -m pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements.txt
+      - name: Download MovieLens 1M (checksum-verified, never committed)
+        run: make data
+      - name: Tests (split leakage, metrics, models, README-vs-results consistency)
+        run: python -m pytest -q
+      - name: Smoke run of the pipeline (tiny grids, not the reported numbers)
+        run: python -m recsys.experiment --quick
