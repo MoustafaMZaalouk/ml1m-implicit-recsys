@@ -1,0 +1,7 @@
+data/
+__pycache__/
+.pytest_cache/
+*.pyc
+results/results_quick.json
+.cache.json
+results/.cache.json
