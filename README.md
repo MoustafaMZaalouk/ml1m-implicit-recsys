@@ -1,5 +1,9 @@
 # MovieLens 1M implicit-feedback recommender ladder
 
+[![CI](https://github.com/MoustafaMZaalouk/ml1m-implicit-recsys/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/MoustafaMZaalouk/ml1m-implicit-recsys/actions/workflows/ci.yml)
+
+CI downloads data, runs tests and a small smoke pipeline, not the reported full experiment.
+
 An offline comparison of four recommenders on MovieLens 1M, treating every rating as an implicit positive:
 popularity, item-KNN (cosine), implicit ALS, and a two-tower MLP in PyTorch. Evaluation ranks the **full item catalog**
 for every user (no sampled negatives) after a **temporal leave-last-interaction-out split per user**.
