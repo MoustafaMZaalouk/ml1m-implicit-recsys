@@ -1474,7 +1474,7 @@
   "tune_item_knn": 36.632896900177,
   "tune_als": 1281.1851654052734,
   "tune_two_tower": 1914.580982208252,
-  "total": 967.5892841815948
+  "last_resumed_session": 967.5892841815948
  },
  "final_buckets": {
   "head_items": 370,
