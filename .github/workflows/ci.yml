@@ -21,4 +21,6 @@ jobs:
       - name: Tests (split leakage, metrics, models, README-vs-results consistency)
         run: python -m pytest -q
       - name: Smoke run of the pipeline (tiny grids, not the reported numbers)
+        env:
+          PYTHONPATH: src
         run: python -m recsys.experiment --quick
