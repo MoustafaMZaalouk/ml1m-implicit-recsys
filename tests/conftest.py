@@ -19,7 +19,7 @@ def synthetic_ratings(n_users=30, n_items=40, seed=0, ties=True):
 @pytest.fixture(scope="session")
 def real_ratings():
     path = data.DATA_DIR / "ml-1m" / "ratings.dat"
+    data.ensure_data()
     if not path.exists():
         pytest.skip("MovieLens not downloaded; run `make data`")
-    data.ensure_data()
     return data.load_ratings(path)
